@@ -100,7 +100,9 @@ rmList();
 
 // accordion start
 
-const accordName = document.querySelectorAll('.accord__name');
+const accordName = [...document.querySelectorAll('.accord__name')];
+let finActive = accordName.findIndex(item => item.classList.contains('active'))
+accordName[finActive].nextElementSibling.style.height = accordName[finActive].nextElementSibling.scrollHeight + 'px';
 accordName.forEach(item => {
     item.addEventListener('click', function(e){
         e.preventDefault();
